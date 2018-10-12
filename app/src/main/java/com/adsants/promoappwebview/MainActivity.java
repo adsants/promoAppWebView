@@ -4,6 +4,8 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -13,8 +15,13 @@ import com.google.firebase.iid.InstanceIdResult;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    EditText text_token;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -34,7 +41,14 @@ public class MainActivity extends AppCompatActivity {
                         // Get new Instance ID token
                         String token = task.getResult().getToken();
 
-                        Log.d("initoken", token);
+                       // Log.d("initoken", token);
+
+                      // mTextView.setText(token);
+
+                        text_token    = findViewById(R.id.input_nama);
+
+                        text_token.setText(token);
+
                         // Log and toast
                       //  String msg = getString(R.string.msg_token_fmt, token);
                       //  Log.d(TAG, msg);
